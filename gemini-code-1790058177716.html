@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Tiếng Anh - Ms Lê Hằng English</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #8854C0, #FDCB6E, #00C9A7, #FF7675, #6C5CE7);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            padding: 20px 10px 60px 10px;
+            color: #2d3436;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SVG Background Patterns Overlay */
+        .bg-patterns {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.25;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><g fill="%23FFFFFF"><path d="M20 10l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/><circle cx="80" cy="30" r="8"/><path d="M100 80c0 5-5 10-10 10s-10-5-10-10 5-10 10-10 10 5 10 10z"/><path d="M30 90l5-10 10 5-5 10z"/><path d="M70 100l2 4 4 2-4 2-2 4-2-4-4-2 4-2z"/></g></svg>');
+            animation: floatPatterns 20s linear infinite;
+        }
+
+        @keyframes floatPatterns {
+            from { background-position: 0 0; }
+            to { background-position: 120px 240px; }
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Style */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .teacher-badge {
+            display: inline-block;
+            background: #ffffff;
+            color: #6C5CE7;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 800;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin-bottom: 10px;
+            border: 2px solid #6C5CE7;
+            transform: rotate(-1deg);
+        }
+
+        .main-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 2px 3px 0px rgba(0,0,0,0.2);
+            margin-bottom: 12px;
+        }
+
+        /* Important Reminder Box */
+        .reminder-card {
+            background: #FFF9E6;
+            border: 3px solid #FFEAA7;
+            border-left: 8px solid #FDCB6E;
+            border-radius: 18px;
+            padding: 16px 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .reminder-title {
+            color: #D63031;
+            font-weight: 900;
+            font-size: 17px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .reminder-text {
+            color: #2d3436;
+            font-size: 14.5px;
+            line-height: 1.5;
+            font-weight: 700;
+        }
+
+        .reminder-highlight {
+            display: block;
+            margin-top: 8px;
+            color: #6C5CE7;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        /* Question Cards */
+        .question-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            border: 3px solid #F0F0F0;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            border-bottom: 2px dashed #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .q-number {
+            background: #6C5CE7;
+            color: white;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 4px 14px;
+            border-radius: 12px;
+            box-shadow: 0 3px 0 #4b38b3;
+        }
+
+        .q-type {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #b2bec3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .q-text {
+            font-size: 17px;
+            font-weight: 700;
+            color: #2d3436;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .q-text u {
+            color: #e84393;
+            font-weight: 900;
+            text-decoration-color: #e84393;
+            text-decoration-thickness: 3px;
+            padding: 0 2px;
+        }
+
+        /* Option Grid / Buttons */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .opt-btn {
+            background: #F8F9FA;
+            border: 2px solid #E9ECEF;
+            border-bottom: 5px solid #DEE2E6;
+            border-radius: 18px;
+            padding: 13px 16px;
+            font-size: 15.5px;
+            font-weight: 700;
+            color: #495057;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            outline: none;
+            user-select: none;
+        }
+
+        .opt-btn:hover:not([disabled]) {
+            transform: translateY(-2px) scale(1.01);
+            background: #EDF2F7;
+            border-color: #CBD5E0;
+        }
+
+        .opt-btn:active:not([disabled]) {
+            transform: translateY(2px);
+            border-bottom-width: 2px;
+        }
+
+        .opt-prefix {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #E2E8F0;
+            color: #4A5568;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* Correct & Wrong States */
+        .opt-btn.correct {
+            background: #E6F9F0 !important;
+            border-color: #00D26A !important;
+            border-bottom: 5px solid #00A852 !important;
+            color: #007A3D !important;
+        }
+        .opt-btn.correct .opt-prefix {
+            background: #00D26A !important;
+            color: white !important;
+        }
+
+        .opt-btn.wrong {
+            background: #FFEAEA !important;
+            border-color: #FF4757 !important;
+            border-bottom: 5px solid #D63031 !important;
+            color: #C0392B !important;
+            animation: shake 0.4s ease;
+        }
+        .opt-btn.wrong .opt-prefix {
+            background: #FF4757 !important;
+            color: white !important;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+
+        /* Explanation Box */
+        .explanation-box {
+            display: none;
+            margin-top: 18px;
+            background: #F3F0FF;
+            border: 2px dashed #9B51E0;
+            border-radius: 18px;
+            padding: 16px 18px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .explanation-box.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .exp-head {
+            font-weight: 900;
+            color: #6C5CE7;
+            font-size: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .exp-section {
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.55;
+            color: #2d3436;
+        }
+
+        .exp-section strong {
+            color: #6C5CE7;
+        }
+
+        .exp-list {
+            margin-left: 12px;
+            list-style: none;
+        }
+
+        .exp-list li {
+            margin-bottom: 3px;
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .exp-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #8854C0;
+            font-weight: bold;
+        }
+
+        /* Submit Bar & Modal */
+        .submit-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .submit-btn {
+            background: #00D26A;
+            color: white;
+            font-size: 20px;
+            font-weight: 900;
+            padding: 16px 45px;
+            border: none;
+            border-bottom: 6px solid #00A852;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 210, 106, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            background: #00E676;
+        }
+
+        .submit-btn:active {
+            transform: translateY(3px);
+            border-bottom-width: 2px;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 28px;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px 24px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            border: 4px solid #6C5CE7;
+            animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-score {
+            font-size: 48px;
+            font-weight: 900;
+            color: #6C5CE7;
+            margin: 10px 0;
+        }
+
+        .modal-msg {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d3436;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            background: #F8F9FA;
+            padding: 16px;
+            border-radius: 16px;
+            border-left: 5px solid #6C5CE7;
+        }
+
+        .close-modal-btn {
+            background: #6C5CE7;
+            color: white;
+            border: none;
+            border-bottom: 4px solid #4b38b3;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-patterns"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div class="container">
+        <header>
+            <div class="teacher-badge">👩‍🏫 Giáo viên tạo: Ms Lê Hằng English</div>
+            <h1 class="main-title">🎯 BÀI KIỂM TRA TIẾNG ANH TƯƠNG TÁC</h1>
+        </header>
+
+        <div class="reminder-card">
+            <div class="reminder-title">
+                <span>⚠️ LỜI NHẮC CỰC KỲ QUAN TRỌNG ⚠️</span>
+            </div>
+            <div class="reminder-text">
+                Chỉ có đọc kỹ giải thích ngay sau mỗi câu, sau đó ghi lại từ vựng/cấu trúc mới vào vở để học thì mới thực sự giỏi lên.<br>
+                Làm cho xong mà không đọc giải thích hay đọc qua loa không ghi chép thì chỉ tốn thời gian vô ích!
+                <span class="reminder-highlight">* Kéo tới đâu, làm tới đó! *</span>
+            </div>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="submit-container">
+            <button class="submit-btn" onclick="submitQuiz()">NỘP BÀI THI 🚀</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="result-modal">
+        <div class="modal-card">
+            <div style="font-size: 50px;">🏆</div>
+            <h2 style="font-weight: 900; color:#2d3436;">KẾT QUẢ BÀI LÀM</h2>
+            <div class="modal-score" id="score-text">0 / 40</div>
+            <div class="modal-msg" id="comment-text">...</div>
+            <button class="close-modal-btn" onclick="closeModal()">ĐÓNG VÀ XEM LẠI BÀI 📝</button>
+        </div>
+    </div>
+
+    <script>
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new AudioContext();
+        }
+
+        function playSound(type) {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+
+                if (type === 'correct') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(659.25, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(1318.51, audioCtx.currentTime + 0.3);
+                    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.4);
+                } else if (type === 'wrong') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(220, audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(160, audioCtx.currentTime + 0.15);
+                    osc.frequency.setValueAtTime(110, audioCtx.currentTime + 0.3);
+                    gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.45);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start();
+                    osc.stop(audioCtx.currentTime + 0.45);
+                }
+            } catch (e) {
+                console.log("Audio waiting for user gesture", e);
+            }
+        }
+
+        const rawQuestions = [
+            // III - Q1
+            {
+                type: "SECTION III - WISH CLAUSES",
+                question: "1. I wish people in the world ________ conflicts and live in peace.",
+                options: [
+                    { text: "don't have", correct: false },
+                    { text: "doesn't have", correct: false },
+                    { text: "didn't have", correct: true },
+                    { text: "didn't having", correct: false }
+                ],
+                explanation: {
+                    translation: "Tôi ước mọi người trên thế giới không có xung đột và sống trong hòa bình.",
+                    optionsDict: [
+                        "A. don't have (Hiện tại đơn)",
+                        "B. doesn't have (Hiện tại đơn)",
+                        "C. didn't have (Quá khứ đơn - lùi thì)",
+                        "D. didn't having (Sai ngữ pháp)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì câu ước trái với thực tế ở hiện tại sử dụng cấu trúc: `S + wish + S + V2/V-ed`. Động từ dạng phủ định lùi về 'didn't have'.",
+                    whyIncorrect: "A và B chưa lùi thì; D sai cấu trúc sau 'didn't' phải là V-bare."
+                }
+            },
+            // III - Q2
+            {
+                type: "SECTION III - VERB PATTERNS (SPEND)",
+                question: "2. I wish my friends spent less time ________ computer games and more time outdoors.",
+                options: [
+                    { text: "play", correct: false },
+                    { text: "to play", correct: false },
+                    { text: "playing", correct: true },
+                    { text: "played", correct: false }
+                ],
+                explanation: {
+                    translation: "Tôi ước các bạn của mình dành ít thời gian chơi game máy tính hơn và dành nhiều thời gian ở ngoài trời hơn.",
+                    optionsDict: [
+                        "A. play (V-bare)",
+                        "B. to play (to-V)",
+                        "C. playing (V-ing)",
+                        "D. played (V2/V-ed)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì theo cấu trúc: `spend time/money + V-ing` (dành thời gian/tiền bạc làm việc gì).",
+                    whyIncorrect: "A, B, D sai cấu trúc động từ đi sau 'spend time'."
+                }
+            },
+            // III - Q3
+            {
+                type: "SECTION III - WISH CLAUSES (COULD)",
+                question: "3. It must be incredible travelling by dogsled. I wish I ________ it.",
+                options: [
+                    { text: "can do", correct: false },
+                    { text: "could did", correct: false },
+                    { text: "can done", correct: false },
+                    { text: "could do", correct: true }
+                ],
+                explanation: {
+                    translation: "Du lịch bằng xe chó kéo chắc hẳn phải tuyệt vời lắm. Giá như tôi có thể thử trải nghiệm nó.",
+                    optionsDict: [
+                        "A. can do (Chưa lùi thì)",
+                        "B. could did (Sai ngữ pháp sau could)",
+                        "C. can done (Sai ngữ pháp)",
+                        "D. could do (Lùi thì can -> could + V-bare)"
+                    ],
+                    whyCorrect: "Đáp án D đúng vì câu ước về khả năng ở hiện tại dùng cấu trúc: `S + wish + S + could + V-bare`.",
+                    whyIncorrect: "A chưa lùi thì; B và C sai hình thái động từ sau động từ khuyết thiếu."
+                }
+            },
+            // III - Q4
+            {
+                type: "SECTION III - USED TO",
+                question: "4. The farmers in my home village ________ rice home on trucks. They used buffalo-driven carts.",
+                options: [
+                    { text: "used to transport", correct: false },
+                    { text: "used to be transported", correct: false },
+                    { text: "didn't use to transport", correct: true },
+                    { text: "use to transport", correct: false }
+                ],
+                explanation: {
+                    translation: "Các bác nông dân ở quê tôi từng không chở lúa về nhà bằng xe tải. Họ từng dùng xe trâu kéo.",
+                    optionsDict: [
+                        "A. used to transport (Đã từng chở - mâu thuẫn câu sau)",
+                        "B. used to be transported (Bị động)",
+                        "C. didn't use to transport (Đã từng không chở - phủ định)",
+                        "D. use to transport (Chưa chia quá khứ)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì vế sau khẳng định 'They used buffalo-driven carts' (Họ từng dùng xe trâu), suy ra trong quá khứ họ không dùng xe tải -> `didn't use to transport`.",
+                    whyIncorrect: "A ngược nghĩa; B sai dạng bị động; D sai cấu trúc dùng trong quá khứ."
+                }
+            },
+            // III - Q5
+            {
+                type: "SECTION III - VOCABULARY IN CONTEXT",
+                question: "5. A ________ is used to make the sound much louder so that many people can hear it from a distance.",
+                options: [
+                    { text: "loudspeaker", correct: true },
+                    { text: "radio", correct: false },
+                    { text: "television", correct: false },
+                    { text: "computer", correct: false }
+                ],
+                explanation: {
+                    translation: "Loa phát thanh/loa phóng thanh được sử dụng để làm âm thanh to hơn nhiều để nhiều người có thể nghe thấy từ xa.",
+                    optionsDict: [
+                        "A. loudspeaker (n: loa phóng thanh/loa to)",
+                        "B. radio (n: đài radio)",
+                        "C. television (n: tivi)",
+                        "D. computer (n: máy tính)"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì 'loudspeaker' là thiết bị chuyên dụng khuếch đại âm thanh cực lớn phục vụ phát thanh từ xa.",
+                    whyIncorrect: "B, C, D không phải là thiết bị chuyên để khuếch đại âm thanh ra không gian rộng."
+                }
+            },
+            // III - Q6
+            {
+                type: "SECTION III - WISH CLAUSES",
+                question: "6. Tuan wishes he ________ English perfectly well.",
+                options: [
+                    { text: "spoke", correct: true },
+                    { text: "speaks", correct: false },
+                    { text: "is speaking", correct: false },
+                    { text: "has spoken", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn ước anh ấy nói tiếng Anh giỏi hoàn hảo.",
+                    optionsDict: [
+                        "A. spoke (Quá khứ đơn - lùi thì)",
+                        "B. speaks (Hiện tại đơn)",
+                        "C. is speaking (Hiện tại tiếp diễn)",
+                        "D. has spoken (Hiện tại hoàn thành)"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì câu ước hiện tại lùi thì từ 'speak' thành 'spoke' (`S + wish + S + V2/V-ed`).",
+                    whyIncorrect: "B, C, D chưa lùi thì theo đúng quy tắc bắt buộc của mệnh đề Wish."
+                }
+            },
+            // III - Q7
+            {
+                type: "SECTION III - PHRASAL VERBS (ACT OUT)",
+                question: "7. The children were acting ________ the story of the birth of Jesus.",
+                options: [
+                    { text: "out", correct: true },
+                    { text: "on", correct: false },
+                    { text: "down", correct: false },
+                    { text: "at", correct: false }
+                ],
+                explanation: {
+                    translation: "Bọn trẻ đang đóng vai / diễn lại câu chuyện về sự ra đời của Chúa Giê-su.",
+                    optionsDict: [
+                        "A. out (phr v: act out = đóng vai, diễn lại câu chuyện)",
+                        "B. on",
+                        "C. down",
+                        "D. at"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì cụm động từ 'act out a story' nghĩa là múa kịch/đóng vai thể hiện lại một câu chuyện.",
+                    whyIncorrect: "B, C, D không tạo thành cụm từ mang nghĩa tái hiện/đóng vai vở kịch."
+                }
+            },
+            // III - Q8
+            {
+                type: "SECTION III - WISH CLAUSES (TO BE)",
+                question: "8. When I see the kids playing football, I almost wish I ________ their age again.",
+                options: [
+                    { text: "was", correct: true },
+                    { text: "am", correct: false },
+                    { text: "would be", correct: false },
+                    { text: "could be", correct: false }
+                ],
+                explanation: {
+                    translation: "Khi nhìn bọn trẻ đá bóng, tôi suýt nữa ước gì mình ở lứa tuổi của chúng một lần nữa.",
+                    optionsDict: [
+                        "A. was (Động từ to be ở quá khứ trong câu ước)",
+                        "B. am (Hiện tại đơn)",
+                        "C. would be",
+                        "D. could be"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì trong câu ước hiện tại, động từ 'to be' lùi thì thành 'was/were'. Trong chương trình phổ thông, 'was' hoặc 'were' đều chấp nhận, chuẩn nhất là 'was/were'.",
+                    whyIncorrect: "B chưa lùi thì; C và D không dùng để ước cho trạng thái tuổi tác hiện tại."
+                }
+            },
+            // III - Q9
+            {
+                type: "SECTION III - VOCABULARY IN CONTEXT",
+                question: "9. Youngsters love to eat from street ________ for the cheap price.",
+                options: [
+                    { text: "vans", correct: false },
+                    { text: "vendors", correct: true },
+                    { text: "trucks", correct: false },
+                    { text: "business", correct: false }
+                ],
+                explanation: {
+                    translation: "Giới trẻ thích ăn đồ ăn từ những người bán hàng rong lề đường vì giá rẻ.",
+                    optionsDict: [
+                        "A. vans (n: xe tải nhỏ)",
+                        "B. vendors (n: người bán hàng - cụm 'street vendors')",
+                        "C. trucks (n: xe tải)",
+                        "D. business (n: kinh doanh)"
+                    ],
+                    whyCorrect: "Đáp án B đúng vì cụm 'street vendors' nghĩa là gánh hàng rong / quán hàng lề đường.",
+                    whyIncorrect: "A, C, D không ghép với 'street' chỉ gánh hàng ăn lề đường truyền thống."
+                }
+            },
+            // III - Q10
+            {
+                type: "SECTION III - WISH CLAUSES",
+                question: "10. I wish we ________ to a bigger house. I don't have my own room.",
+                options: [
+                    { text: "will move", correct: false },
+                    { text: "moving", correct: false },
+                    { text: "won't move", correct: false },
+                    { text: "moved", correct: true }
+                ],
+                explanation: {
+                    translation: "Tôi ước gia đình mình chuyển sang một ngôi nhà lớn hơn. Tôi không có phòng riêng.",
+                    optionsDict: [
+                        "A. will move (Chưa lùi thì)",
+                        "B. moving (Danh động từ)",
+                        "C. won't move (Chưa lùi thì)",
+                        "D. moved (Quá khứ đơn - lùi thì chuẩn)"
+                    ],
+                    whyCorrect: "Đáp án D đúng vì câu ước điều không có thật ở hiện tại lùi động từ 'move' thành 'moved'.",
+                    whyIncorrect: "A, B, C chưa lùi thì ngữ pháp."
+                }
+            },
+            // III - Q11
+            {
+                type: "SECTION III - COMMUNICATION / DIALOGUE",
+                question: "11. - \"I've just found 20 dollars in my pocket!\" - \"________!\"",
+                options: [
+                    { text: "How crazy", correct: false },
+                    { text: "That's right", correct: false },
+                    { text: "Thanks a lot", correct: false },
+                    { text: "How cool", correct: true }
+                ],
+                explanation: {
+                    translation: "- \"Tớ vừa tìm thấy 20 đô la trong túi này!\" - \"Tuyệt thế! / Ngầu thế!\"",
+                    optionsDict: [
+                        "A. How crazy (Thật điên rồ)",
+                        "B. That's right (Đúng rồi)",
+                        "C. Thanks a lot (Cảm ơn nhiều)",
+                        "D. How cool (Thật tuyệt vời / Tuyệt thế!)"
+                    ],
+                    whyCorrect: "Đáp án D đúng vì 'How cool!' là câu cảm thán biểu thị sự thích thú và chung vui trước may mắn nhỏ của bạn bè.",
+                    whyIncorrect: "A, B, C không hợp ngữ cảnh bộc lộ cảm xúc thích thú."
+                }
+            },
+            // III - Q12
+            {
+                type: "SECTION III - COMMUNICATION / DIALOGUE",
+                question: "12. \"In the past, marriages used to be arranged by parents.\" – \"________\"",
+                options: [
+                    { text: "Sure. That's right.", correct: false },
+                    { text: "I suppose it was.", correct: false },
+                    { text: "Really? I can't imagine that!", correct: true },
+                    { text: "That's cool!", correct: false }
+                ],
+                explanation: {
+                    translation: "\"Trong quá khứ, các cuộc hôn nhân thường do cha mẹ sắp đặt.\" - \"Thật sao? Tớ không thể tưởng tượng nổi điều đó!\"",
+                    optionsDict: [
+                        "A. Sure. That's right. (Tất nhiên. Đúng rồi)",
+                        "B. I suppose it was. (Tớ cho là vậy)",
+                        "C. Really? I can't imagine that! (Thật sao? Tớ không thể tưởng tượng nổi!)",
+                        "D. That's cool! (Tuyệt đấy!)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì thể hiện sự ngạc nhiên tự nhiên của người hiện đại trước hủ tục sắp đặt hôn nhân ngày xưa.",
+                    whyIncorrect: "A, B, D không biểu thị sự bất ngờ trước hủ tục xưa."
+                }
+            },
+            // III - Q13
+            {
+                type: "SECTION III - VOCABULARY IN CONTEXT",
+                question: "13. We can see many ________ with two loads of fruits on their shoulders in the streets in Ha Noi.",
+                options: [
+                    { text: "street vendors", correct: true },
+                    { text: "electricians", correct: false },
+                    { text: "doctors", correct: false },
+                    { text: "shoppers", correct: false }
+                ],
+                explanation: {
+                    translation: "Chúng ta có thể nhìn thấy nhiều người bán hàng rong với hai gánh hoa quả trên vai trên các con phố ở Hà Nội.",
+                    optionsDict: [
+                        "A. street vendors (n: người bán hàng rong)",
+                        "B. electricians (n: thợ điện)",
+                        "C. doctors (n: bác sĩ)",
+                        "D. shoppers (n: người đi mua sắm)"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì hành động gánh hoa quả trên vai ('two loads of fruits on their shoulders') miêu tả hình ảnh đặc trưng của 'street vendors'.",
+                    whyIncorrect: "B, C, D không gánh hoa quả đi bán lề đường."
+                }
+            },
+            // III - Q14
+            {
+                type: "SECTION III - NOUN PLURAL FORMS",
+                question: "14. Mobile phones and computers are essential technological ________ for young generation.",
+                options: [
+                    { text: "facility", correct: false },
+                    { text: "facilities", correct: true },
+                    { text: "facilitator", correct: false },
+                    { text: "facilitate", correct: false }
+                ],
+                explanation: {
+                    translation: "Điện thoại di động và máy tính là những tiện ích / trang thiết bị công nghệ thiết yếu cho thế hệ trẻ.",
+                    optionsDict: [
+                        "A. facility (Danh từ số ít)",
+                        "B. facilities (Danh từ số nhiều - cụm 'technological facilities')",
+                        "C. facilitator (n: người hỗ trợ)",
+                        "D. facilitate (v: tạo điều kiện)"
+                    ],
+                    whyCorrect: "Đáp án B đúng vì chủ ngữ gồm 'Mobile phones and computers' (số nhiều) và đi sau tính từ 'technological' cần danh từ số nhiều 'facilities' (trang thiết bị/tiện nghi).",
+                    whyIncorrect: "A sai dạng số ít; C chỉ người; D là động từ."
+                }
+            },
+            // III - Q15
+            {
+                type: "SECTION III - ADJECTIVE PATTERNS (TO-V)",
+                question: "15. The policeman is happy ________ the kids safe and sound now.",
+                options: [
+                    { text: "finding", correct: false },
+                    { text: "be found", correct: false },
+                    { text: "to find", correct: true },
+                    { text: "have found", correct: false }
+                ],
+                explanation: {
+                    translation: "Viên cảnh sát rất vui mừng khi tìm thấy bọn trẻ bình an vô sự bây giờ.",
+                    optionsDict: [
+                        "A. finding (V-ing)",
+                        "B. be found (V-bare)",
+                        "C. to find (to-V)",
+                        "D. have found (V3)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì theo cấu trúc tính từ chỉ cảm xúc: `S + be + adj + to-V` (rất vui/hạnh phúc khi làm gì).",
+                    whyIncorrect: "A, B, D sai cấu trúc đi sau tính từ 'happy'."
+                }
+            },
+
+            // V - Q1
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "1. Choose the underlined word/phrase that needs correcting:<br>Everyone <u>wishes</u>(A) they <u>meet</u>(B) relatives <u>on</u>(C) a special occasion such as a <u>wedding</u>(D).",
+                options: [
+                    { text: "wishes", correct: false },
+                    { text: "meet", correct: true },
+                    { text: "on", correct: false },
+                    { text: "wedding", correct: false }
+                ],
+                explanation: {
+                    translation: "Mọi người ước họ gặp lại bà con họ hàng vào một dịp đặc biệt như lễ cưới.",
+                    optionsDict: [
+                        "A. wishes (Đúng)",
+                        "B. meet -> Sửa thành 'met' (Sau mệnh đề ước wish phải lùi thì quá khứ đơn)",
+                        "C. on (Đúng)",
+                        "D. wedding (Đúng)"
+                    ],
+                    whyCorrect: "Đáp án B sai ngữ pháp vì mệnh đề đi sau động từ 'wishes' bắt buộc phải lùi về Thì Quá khứ đơn (`meet` -> `met`).",
+                    whyIncorrect: "A, C, D đều dùng chính xác ngữ pháp."
+                }
+            },
+            // V - Q2
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "2. Choose the underlined word/phrase that needs correcting:<br><u>When</u>(A) he <u>came</u>(B), I <u>watched</u>(C) a football <u>match on TV</u>(D).",
+                options: [
+                    { text: "When", correct: false },
+                    { text: "came", correct: false },
+                    { text: "watched", correct: true },
+                    { text: "match on TV", correct: false }
+                ],
+                explanation: {
+                    translation: "Khi anh ấy đến, tôi đang xem một trận thi đấu bóng đá trên TV.",
+                    optionsDict: [
+                        "A. When (Đúng)",
+                        "B. came (Đúng)",
+                        "C. watched -> Sửa thành 'was watching' (Hành động xem TV đang diễn ra chia Quá khứ tiếp diễn)",
+                        "D. match on TV (Đúng)"
+                    ],
+                    whyCorrect: "Đáp án C sai vì hành động xem TV đang diễn ra thì hành động anh ấy đến ('came') xen vào sudden. Cần sửa `watched` -> `was watching`.",
+                    whyIncorrect: "A, B, D đúng cấu trúc câu kết hợp thì."
+                }
+            },
+            // V - Q3
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "3. Choose the underlined word/phrase that needs correcting:<br><u>When</u>(A) Andrew <u>saw</u>(B) the question, he <u>were knowing</u>(C) the answer <u>immediately</u>(D).",
+                options: [
+                    { text: "When", correct: false },
+                    { text: "saw", correct: false },
+                    { text: "were knowing", correct: true },
+                    { text: "immediately", correct: false }
+                ],
+                explanation: {
+                    translation: "Khi Andrew nhìn thấy câu hỏi, anh ấy đã biết ngay câu trả lời.",
+                    optionsDict: [
+                        "A. When (Đúng)",
+                        "B. saw (Đúng)",
+                        "C. were knowing -> Sửa thành 'knew' (Động từ chỉ trạng thái know không dùng dạng tiếp diễn)",
+                        "D. immediately (Đúng)"
+                    ],
+                    whyCorrect: "Đáp án C sai vì 'know' là stative verb (động từ trạng thái/nhận thức) không chia ở dạng tiếp diễn (-ing). Cần sửa thành `knew`.",
+                    whyIncorrect: "A, B, D đúng."
+                }
+            },
+            // V - Q4
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "4. Choose the underlined word/phrase that needs correcting:<br>Linda <u>has stayed</u>(A) <u>on</u>(B) her <u>uncle's</u>(C) farm <u>for</u>(D) last week.",
+                options: [
+                    { text: "has stayed", correct: true },
+                    { text: "on", correct: false },
+                    { text: "uncle's", correct: false },
+                    { text: "for", correct: false }
+                ],
+                explanation: {
+                    translation: "Linda đã ở trang trại của chú cô ấy vào tuần trước.",
+                    optionsDict: [
+                        "A. has stayed -> Sửa thành 'stayed' (Có mốc thời gian quá khứ xác định 'last week')",
+                        "B. on (Đúng)",
+                        "C. uncle's (Đúng)",
+                        "D. for (Hoặc sửa for -> since nếu giữ Hiện tại hoàn thành, nhưng cách tự nhiên nhất là sửa has stayed -> stayed)"
+                    ],
+                    whyCorrect: "Đáp án A sai vì trạng ngữ 'last week' chỉ một mốc thời gian đã kết thúc hẳn trong quá khứ, bắt buộc chia Thì Quá khứ đơn (`stayed`).",
+                    whyIncorrect: "B, C, D hợp lệ ngữ pháp."
+                }
+            },
+            // V - Q5
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "5. Choose the underlined word/phrase that needs correcting:<br>Lynn <u>wishes</u>(A) she <u>had</u>(B) a bigger apartment and <u>can buy</u>(C) a car.",
+                options: [
+                    { text: "wishes", correct: false },
+                    { text: "had", correct: false },
+                    { text: "can buy", correct: true },
+                    { text: "a car", correct: false }
+                ],
+                explanation: {
+                    translation: "Lynn ước cô ấy có một căn hộ lớn hơn và có thể mua một chiếc ô tô.",
+                    optionsDict: [
+                        "A. wishes (Đúng)",
+                        "B. had (Đúng)",
+                        "C. can buy -> Sửa thành 'could buy' (Song hành lùi thì sau mệnh đề wish)",
+                        "D. a car (Đúng)"
+                    ],
+                    whyCorrect: "Đáp án C sai vì mệnh đề đằng sau 'wishes' phải lùi thì đồng bộ. 'had' đã lùi thì thì 'can buy' cũng phải lùi thành `could buy`.",
+                    whyIncorrect: "A, B, D chia đúng cấu trúc."
+                }
+            },
+            // V - Q6
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "6. Choose the underlined word/phrase that needs correcting:<br><u>As soon as</u>(A) the alarm clock <u>rang</u>(B), she <u>woke up</u>(C) and <u>was getting</u>(D) out of bed.",
+                options: [
+                    { text: "As soon as", correct: false },
+                    { text: "rang", correct: false },
+                    { text: "woke up", correct: false },
+                    { text: "was getting", correct: true }
+                ],
+                explanation: {
+                    translation: "Ngay khi chuông báo thức reo, cô ấy thức dậy và ra khỏi giường.",
+                    optionsDict: [
+                        "A. As soon as (Đúng)",
+                        "B. rang (Đúng)",
+                        "C. woke up (Đúng)",
+                        "D. was getting -> Sửa thành 'got' (Chuỗi hành động liên tiếp chia quá khứ đơn)"
+                    ],
+                    whyCorrect: "Đáp án D sai vì chuỗi hành động xảy ra nối tiếp nhau ngay lập tức ('rang' -> 'woke up' -> 'got') đều phải chia ở Thì Quá khứ đơn (`got`).",
+                    whyIncorrect: "A, B, C đúng."
+                }
+            },
+            // V - Q7
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "7. Choose the underlined word/phrase that needs correcting:<br>What <u>do</u>(A) you <u>use to</u>(B) <u>do</u>(C) when you <u>felt</u>(D) afraid?",
+                options: [
+                    { text: "do", correct: true },
+                    { text: "use to", correct: false },
+                    { text: "do", correct: false },
+                    { text: "felt", correct: false }
+                ],
+                explanation: {
+                    translation: "Bạn thường làm gì khi bạn cảm thấy sợ hãi trong quá khứ?",
+                    optionsDict: [
+                        "A. do -> Sửa thành 'did' (Hỏi về thói quen trong quá khứ)",
+                        "B. use to (Đúng - đứng sau trợ động từ did)",
+                        "C. do (Đúng)",
+                        "D. felt (Đúng - động từ quá khứ)"
+                    ],
+                    whyCorrect: "Đáp án A sai vì câu hỏi về thói quen quá khứ có vế sau 'felt' (quá khứ), trợ động từ câu hỏi phải là `did` (`What did you use to do...`).",
+                    whyIncorrect: "B, C, D chính xác."
+                }
+            },
+            // V - Q8
+            {
+                type: "SECTION V - ERROR CORRECTION",
+                question: "8. Choose the underlined word/phrase that needs correcting:<br>Mary <u>was drying</u>(A) the dishes <u>when</u>(B) she <u>was dropping</u>(C) the plate.",
+                options: [
+                    { text: "was drying", correct: false },
+                    { text: "when", correct: false },
+                    { text: "was dropping", correct: true },
+                    { text: "the plate", correct: false }
+                ],
+                explanation: {
+                    translation: "Mary đang lau khô bát đĩa thì cô ấy làm rơi chiếc đĩa.",
+                    optionsDict: [
+                        "A. was drying (Đúng - hành động đang diễn ra)",
+                        "B. when (Đúng)",
+                        "C. was dropping -> Sửa thành 'dropped' (Hành động cắt ngang chia quá khứ đơn)",
+                        "D. the plate (Đúng)"
+                    ],
+                    whyCorrect: "Đáp án C sai vì hành động làm rơi chiếc đĩa xen vào đột ngột trong khi đang lau bát đĩa, phải chia Thì Quá khứ đơn (`dropped`).",
+                    whyIncorrect: "A, B, D dùng chuẩn."
+                }
+            },
+
+            // VI - Q1
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "1. ________, we used to cook five-colour sticky rice on the first day of the lunar month. (TRADITION)",
+                options: [
+                    { text: "Tradition", correct: false },
+                    { text: "Traditional", correct: false },
+                    { text: "Traditionally", correct: true },
+                    { text: "Untraditional", correct: false }
+                ],
+                explanation: {
+                    translation: "Theo truyền thống, chúng tôi thường đồ xôi ngũ sắc vào ngày mùng một âm lịch.",
+                    optionsDict: [
+                        "A. Tradition (n)",
+                        "B. Traditional (adj)",
+                        "C. Traditionally (adv: theo truyền thống - đứng trước dấu phẩy)",
+                        "D. Untraditional (adj)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì vị trí đứng đầu câu ngăn cách bởi dấu phẩy đòi hỏi Trạng từ `Traditionally`.",
+                    whyIncorrect: "A, B, D không phải trạng từ bổ nghĩa cho cả mệnh đề."
+                }
+            },
+            // VI - Q2
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "2. Tom says he can't put up with Mary's ________ any longer. (BEHAVE)",
+                options: [
+                    { text: "behaving", correct: false },
+                    { text: "behavior", correct: true },
+                    { text: "behaved", correct: false },
+                    { text: "misbehave", correct: false }
+                ],
+                explanation: {
+                    translation: "Tom nói anh ấy không thể chịu đựng nổi hành vi / cách cư xử của Mary thêm nữa.",
+                    optionsDict: [
+                        "A. behaving (V-ing)",
+                        "B. behavior / behaviour (n: hành vi, cách cư xử)",
+                        "C. behaved (V-ed)",
+                        "D. misbehave (v: cư xử tồi)"
+                    ],
+                    whyCorrect: "Đáp án B đúng vì đứng sau sở hữu cách 'Mary's' cần một Danh từ `behavior`.",
+                    whyIncorrect: "A, C, D không phải dạng danh từ chỉ tư cách/hành vi."
+                }
+            },
+            // VI - Q3
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "3. Those ________ over there are friends of both the bride and groom. (ATTEND)",
+                options: [
+                    { text: "attendance", correct: false },
+                    { text: "attendants", correct: false },
+                    { text: "attendees", correct: false },
+                    { text: "B & C are correct", correct: true }
+                ],
+                explanation: {
+                    translation: "Những quan khách / người tham dự đằng kia là bạn của cả chú rể và cô dâu.",
+                    optionsDict: [
+                        "A. attendance (n: sự tham dự)",
+                        "B. attendants (n: người tham dự/phục vụ)",
+                        "C. attendees (n: người tham dự sự kiện)",
+                        "D. B & C are correct (Cả B và C đều là danh từ chỉ người số nhiều)"
+                    ],
+                    whyCorrect: "Đáp án D đúng vì cả 'attendants' và 'attendees' đều là danh từ chỉ người số nhiều phù hợp đứng sau 'Those' làm chủ ngữ.",
+                    whyIncorrect: "A là danh từ trừu tượng không chỉ người."
+                }
+            },
+            // VI - Q4
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "4. The photo brought back many happy memories of my ________. (CHILD)",
+                options: [
+                    { text: "child", correct: false },
+                    { text: "childish", correct: false },
+                    { text: "childhood", correct: true },
+                    { text: "children", correct: false }
+                ],
+                explanation: {
+                    translation: "Bức ảnh đã gợi lại nhiều kỷ niệm hạnh phúc thời thơ ấu của tôi.",
+                    optionsDict: [
+                        "A. child (n: đứa trẻ)",
+                        "B. childish (adj: trẻ con)",
+                        "C. childhood (n: thời thơ ấu - cụm 'memories of childhood')",
+                        "D. children (n: những đứa trẻ)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì 'memories of childhood' nghĩa là kỷ niệm thời thơ ấu.",
+                    whyIncorrect: "A, B, D không mang nghĩa mốc thời gian thời thơ ấu."
+                }
+            },
+            // VI - Q5
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "5. I think riding a bicycle is ________, especially when it rains. (CONVENIENCE)",
+                options: [
+                    { text: "convenient", correct: false },
+                    { text: "inconvenient", correct: true },
+                    { text: "convenience", correct: false },
+                    { text: "inconveniently", correct: false }
+                ],
+                explanation: {
+                    translation: "Tôi nghĩ đi xe đạp thì bất tiện, đặc biệt là khi trời mưa.",
+                    optionsDict: [
+                        "A. convenient (adj: tiện lợi)",
+                        "B. inconvenient (adj: bất tiện)",
+                        "C. convenience (n: sự tiện lợi)",
+                        "D. inconveniently (adv)"
+                    ],
+                    whyCorrect: "Đáp án B đúng vì vế 'especially when it rains' (đặc biệt khi trời mưa) chỉ sự bất lợi -> chọn tính từ phủ định `inconvenient`.",
+                    whyIncorrect: "A ngược nghĩa; C và D sai từ loại."
+                }
+            },
+            // VI - Q6
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "6. She said that in her village, ________ used to be arranged by parents. (MARRY)",
+                options: [
+                    { text: "marry", correct: false },
+                    { text: "marriage", correct: false },
+                    { text: "marriages", correct: true },
+                    { text: "married", correct: false }
+                ],
+                explanation: {
+                    translation: "Cô ấy nói rằng ở làng cô ấy, các cuộc hôn nhân từng do cha mẹ sắp đặt.",
+                    optionsDict: [
+                        "A. marry (v)",
+                        "B. marriage (Danh từ số ít)",
+                        "C. marriages (Danh từ số nhiều làm chủ ngữ)",
+                        "D. married (adj)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì nói chung về các cuộc hôn nhân trong làng dùng danh từ đếm được số nhiều `marriages` làm chủ ngữ.",
+                    whyIncorrect: "A và D là động từ/tính từ; B dạng số ít không bao quát hết các cuộc hôn nhân."
+                }
+            },
+            // VI - Q7
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "7. Thirty years ago, only ________ people in the city had televisions. (WEALTH)",
+                options: [
+                    { text: "wealth", correct: false },
+                    { text: "wealthy", correct: true },
+                    { text: "wealthier", correct: false },
+                    { text: "wealthily", correct: false }
+                ],
+                explanation: {
+                    translation: "Ba mươi năm trước, chỉ những người giàu có ở thành phố mới có tivi.",
+                    optionsDict: [
+                        "A. wealth (n: sự giàu có)",
+                        "B. wealthy (adj: giàu có = wealthy people)",
+                        "C. wealthier (adj so sánh hơn)",
+                        "D. wealthily (adv)"
+                    ],
+                    whyCorrect: "Đáp án B đúng vì đứng trước danh từ chỉ người 'people' cần một Tính từ `wealthy`.",
+                    whyIncorrect: "A, C, D không đúng chức năng tính từ nguyên mẫu bổ nghĩa cho danh từ."
+                }
+            },
+            // VI - Q8
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "8. Over the last century, there have been many significant ________ in the way we live. (CHANGE)",
+                options: [
+                    { text: "changes", correct: true },
+                    { text: "changing", correct: false },
+                    { text: "changed", correct: false },
+                    { text: "change", correct: false }
+                ],
+                explanation: {
+                    translation: "Trong thế kỷ qua, đã có nhiều sự thay đổi đáng kể trong lối sống của chúng ta.",
+                    optionsDict: [
+                        "A. changes (Danh từ số nhiều)",
+                        "B. changing (V-ing)",
+                        "C. changed (V-ed)",
+                        "D. change (Danh từ số ít)"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì đứng sau lượng từ 'many' và tính từ 'significant' cần danh từ đếm được số nhiều `changes`.",
+                    whyIncorrect: "B, C, D sai dạng từ loại số nhiều."
+                }
+            },
+            // VI - Q9
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "9. There didn't use to be many pastimes ________. (ACTIVITY)",
+                options: [
+                    { text: "active", correct: false },
+                    { text: "actions", correct: false },
+                    { text: "activities", correct: true },
+                    { text: "actors", correct: false }
+                ],
+                explanation: {
+                    translation: "Ngày xưa không có nhiều hoạt động giải trí.",
+                    optionsDict: [
+                        "A. active (adj)",
+                        "B. actions (n: hành động)",
+                        "C. activities (n: hoạt động - cụm 'pastime activities')",
+                        "D. actors (n: diễn viên)"
+                    ],
+                    whyCorrect: "Đáp án C đúng vì cụm danh từ ghép 'pastime activities' nghĩa là các hoạt động tiêu khiển / giải trí.",
+                    whyIncorrect: "A, B, D không ghép tạo thành cụm từ mang nghĩa hoạt động giải trí."
+                }
+            },
+            // VI - Q10
+            {
+                type: "SECTION VI - WORD FORMATION",
+                question: "10. In the past, ________ of living were not as comfortable as they are now. (CONDITION)",
+                options: [
+                    { text: "condition", correct: false },
+                    { text: "conditions", correct: true },
+                    { text: "conditional", correct: false },
+                    { text: "conditionally", correct: false }
+                ],
+                explanation: {
+                    translation: "Trong quá khứ, điều kiện sống không được thoải mái như hiện tại.",
+                    optionsDict: [
+                        "A. condition (Số ít)",
+                        "B. conditions (Danh từ số nhiều - cụm 'living conditions')",
+                        "C. conditional (adj)",
+                        "D. conditionally (adv)"
+                    ],
+                    whyCorrect: "Đáp án B đúng vì cụm từ 'living conditions' (điều kiện sống) luôn ở dạng số nhiều và động từ phía sau chia số nhiều 'were'.",
+                    whyIncorrect: "A sai số ít; C và D sai từ loại."
+                }
+            },
+
+            // VII - Q1
+            {
+                type: "SECTION VII - CONVERSATION COMPLETION",
+                question: "1. Complete the conversation:<br>Tuan: (1) ________<br>Hung: I'm reading an article about life in the past and present.",
+                options: [
+                    { text: "What are you reading?", correct: true },
+                    { text: "Really? How come?", correct: false },
+                    { text: "What does it say about that topic?", correct: false },
+                    { text: "Thanks. I think so.", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn: Bạn đang đọc gì thế? - Hùng: Tớ đang đọc một bài báo về cuộc sống trong quá khứ và hiện tại.",
+                    optionsDict: [
+                        "A. What are you reading? (Bạn đang đọc gì thế?)",
+                        "B. Really? How come? (Thật sao? Làm thế nào?)",
+                        "C. What does it say...? (Nó nói gì...)",
+                        "D. Thanks... (Cảm ơn)"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì câu trả lời của Hùng nêu rõ \"I'm reading an article...\" (Tớ đang đọc bài báo...) nên câu hỏi trực tiếp phải hỏi về hành động đọc.",
+                    whyIncorrect: "B, C, D không khớp với câu trả lời của Hùng."
+                }
+            },
+            // VII - Q2
+            {
+                type: "SECTION VII - CONVERSATION COMPLETION",
+                question: "2. Complete the conversation:<br>Tuan: (2) ________<br>Hung: They argue that life in the past was much better than now.",
+                options: [
+                    { text: "What are you reading?", correct: false },
+                    { text: "Interesting. What does it say about that topic?", correct: true },
+                    { text: "Why do you think so?", correct: false },
+                    { text: "What do you mean?", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn: Thú vị đấy. Bài báo nói gì về chủ đề đó? - Hùng: Họ lập luận rằng cuộc sống ngày xưa tốt hơn bây giờ nhiều.",
+                    optionsDict: [
+                        "A. What are you reading?",
+                        "B. Thú vị đấy. Bài báo nói gì về chủ đề đó?",
+                        "C. Tại sao bạn nghĩ vậy?",
+                        "D. Ý bạn là sao?"
+                    ],
+                    whyCorrect: "Đáp án B đúng vì mở đầu khen 'Interesting' và hỏi nội dung bài báo 'What does it say...?' khớp với câu trả lời Hùng trích dẫn luận điểm bài báo.",
+                    whyIncorrect: "A, C, D không hỏi về nội dung trích dẫn bài báo."
+                }
+            },
+            // VII - Q3
+            {
+                type: "SECTION VII - CONVERSATION COMPLETION",
+                question: "3. Complete the conversation:<br>Tuan: (3) ________<br>Hung: They said many values in life had changed, and they destroyed humans' morality.",
+                options: [
+                    { text: "Really? How come?", correct: true },
+                    { text: "What are you reading?", correct: false },
+                    { text: "I agree with them.", correct: false },
+                    { text: "Thanks a lot.", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn: Thật sao? Sao lại như thế? - Hùng: Họ nói nhiều giá trị cuộc sống đã thay đổi và làm suy thoái đạo đức con người.",
+                    optionsDict: [
+                        "A. Really? How come? (Thật sao? Sao lại thế?)",
+                        "B. What are you reading?",
+                        "C. Tớ đồng ý với họ",
+                        "D. Cảm ơn nhiều"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì \"Really? How come?\" dùng để hỏi nguyên do chi tiết cho lập luận bất ngờ ở câu trước.",
+                    whyIncorrect: "B, C, D không đúng mạch giải thích lý do."
+                }
+            },
+            // VII - Q4
+            {
+                type: "SECTION VII - CONVERSATION COMPLETION",
+                question: "4. Complete the conversation:<br>Tuan: (4) ________<br>Hung: Why?",
+                options: [
+                    { text: "Well, I'm afraid that I can't agree with their viewpoint.", correct: true },
+                    { text: "I totally agree with them.", correct: false },
+                    { text: "What are you reading?", correct: false },
+                    { text: "That's cool!", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn: Chà, tớ e là tớ không thể đồng ý với quan điểm của họ. - Hùng: Tại sao?",
+                    optionsDict: [
+                        "A. Tớ e là tớ không thể đồng ý với quan điểm của họ",
+                        "B. Tớ hoàn toàn đồng ý",
+                        "C. Bạn đang đọc gì",
+                        "D. Tuyệt quá"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì phản hồi lập luận phản đối làm cho Hùng hỏi lại \"Why?\" (Tại sao bạn lại không đồng ý?).",
+                    whyIncorrect: "B, C, D không làm nảy sinh câu hỏi phản vấn 'Why?' từ Hùng."
+                }
+            },
+            // VII - Q5
+            {
+                type: "SECTION VII - CONVERSATION COMPLETION",
+                question: "5. Complete the conversation:<br>Tuan: (5) ________<br>Hung: What do you mean?",
+                options: [
+                    { text: "I agree that life has changed, but it offers US both benefits and drawbacks.", correct: true },
+                    { text: "What are you reading?", correct: false },
+                    { text: "Really? How come?", correct: false },
+                    { text: "Thanks for your help.", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn: Tớ thừa nhận cuộc sống đã thay đổi, nhưng nó mang lại cho chúng ta cả lợi ích lẫn mặt hạn chế. - Hùng: Ý bạn là thế nào?",
+                    optionsDict: [
+                        "A. Tớ thừa nhận cuộc sống đã thay đổi, nhưng nó mang lại cả lợi ích lẫn hạn chế",
+                        "B. Bạn đang đọc gì",
+                        "C. Thật sao?",
+                        "D. Cảm ơn sự giúp đỡ"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì nêu ra quan điểm chung mang tính khái quát khiến Hùng tiếp tục hỏi làm rõ \"What do you mean?\" (Ý bạn chi tiết là gì?).",
+                    whyIncorrect: "B, C, D không phải là nhận định khái quát cần giải thích thêm."
+                }
+            },
+            // VII - Q6
+            {
+                type: "SECTION VII - CONVERSATION COMPLETION",
+                question: "6. Complete the conversation:<br>Tuan: (6) ________<br>Hung: Hmm, it's quite complicated, but I think you're right somehow.",
+                options: [
+                    { text: "I mean, as time goes by, people are supplied with better service, facilities, and standards of living. However, we haven't lost our identity or morality. We only change it to fit the social background.", correct: true },
+                    { text: "What are you reading?", correct: false },
+                    { text: "Really? How come?", correct: false },
+                    { text: "Thanks for listening.", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn: Ý tớ là cùng với thời gian, con người được cung cấp dịch vụ, tiện nghi và mức sống tốt hơn. Tuy nhiên chúng ta không đánh mất bản sắc hay đạo đức. Chúng ta chỉ thay đổi để phù hợp với bối cảnh xã hội thôi. - Hùng: Khá phức tạp nhưng tớ nghĩ bạn đúng.",
+                    optionsDict: [
+                        "A. Lời giải thích chi tiết bắt đầu bằng 'I mean...'",
+                        "B. What are you reading?",
+                        "C. Really? How come?",
+                        "D. Cảm ơn vì đã lắng nghe"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì giải thích chi tiết cho câu hỏi \"What do you mean?\" ở lượt thoại trước bằng cụm mở đầu 'I mean...'.",
+                    whyIncorrect: "B, C, D không giải thích cho câu hỏi 'What do you mean?'."
+                }
+            },
+            // VII - Q7
+            {
+                type: "SECTION VII - CONVERSATION COMPLETION",
+                question: "7. Complete the conversation:<br>Tuan: (7) ________<br>Hung: I totally agree with you.",
+                options: [
+                    { text: "Thanks. I think that we should pay more attention to how we can improve our lives rather than criticize them.", correct: true },
+                    { text: "What are you reading?", correct: false },
+                    { text: "Really? How come?", correct: false },
+                    { text: "I don't think so.", correct: false }
+                ],
+                explanation: {
+                    translation: "Tuấn: Cảm ơn. Tớ nghĩ chúng ta nên chú ý hơn vào cách cải thiện cuộc sống thay vì chỉ biết chỉ trích. - Hùng: Tớ hoàn toàn đồng ý với bạn.",
+                    optionsDict: [
+                        "A. Cảm ơn. Tớ nghĩ chúng ta nên chú ý cải thiện cuộc sống hơn là chỉ trích",
+                        "B. Bạn đang đọc gì",
+                        "C. Thật sao?",
+                        "D. Tớ không nghĩ vậy"
+                    ],
+                    whyCorrect: "Đáp án A đúng vì câu đúc kết mang tính xây dựng cao làm Hùng hoàn toàn tán thành: \"I totally agree with you.\"",
+                    whyIncorrect: "B, C, D không đúng mạch kết thúc thông điệp."
+                }
+            }
+        ];
+
+        let questions = [];
+
+        function shuffleArray(array) {
+            let cur = array.slice();
+            for (let i = cur.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cur[i], cur[j]] = [cur[j], cur[i]];
+            }
+            return cur;
+        }
+
+        function initQuiz() {
+            questions = rawQuestions.map(q => {
+                let shuffledOpts = shuffleArray(q.options);
+                return {
+                    ...q,
+                    shuffledOptions: shuffledOpts,
+                    userAnswerIndex: null
+                };
+            });
+            renderQuiz();
+        }
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = '';
+
+            questions.forEach((q, idx) => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+
+                const optionsHTML = q.shuffledOptions.map((opt, optIdx) => {
+                    const letters = ['A', 'B', 'C', 'D'];
+                    return `
+                        <button class="opt-btn" id="opt-${idx}-${optIdx}" onclick="selectAnswer(${idx}, ${optIdx})">
+                            <span class="opt-prefix">${letters[optIdx]}</span>
+                            <span>${opt.text}</span>
+                        </button>
+                    `;
+                }).join('');
+
+                const exp = q.explanation;
+                const expDictHTML = exp.optionsDict.map(item => `<li>${item}</li>`).join('');
+
+                card.innerHTML = `
+                    <div class="q-header">
+                        <span class="q-number">Câu ${idx + 1} / ${questions.length}</span>
+                        <span class="q-type">${q.type}</span>
+                    </div>
+                    <div class="q-text">${q.question}</div>
+                    <div class="options-grid">
+                        ${optionsHTML}
+                    </div>
+                    <div class="explanation-box" id="exp-${idx}">
+                        <div class="exp-head">💡 GIẢI THÍCH CHI TIẾT TỪ MS LÊ HẰNG:</div>
+                        <div class="exp-section"><strong>1. Dịch câu hỏi:</strong> ${exp.translation}</div>
+                        <div class="exp-section">
+                            <strong>2. Phân tích 4 đáp án:</strong>
+                            <ul class="exp-list">${expDictHTML}</ul>
+                        </div>
+                        <div class="exp-section"><strong>3. Tại sao chọn đáp án này?</strong> ${exp.whyCorrect}</div>
+                        <div class="exp-section"><strong>4. Tại sao các đáp án khác sai?</strong> ${exp.whyIncorrect}</div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function selectAnswer(qIdx, optIdx) {
+            const q = questions[qIdx];
+            if (q.userAnswerIndex !== null) return;
+
+            q.userAnswerIndex = optIdx;
+            const selectedOpt = q.shuffledOptions[optIdx];
+            const isCorrect = selectedOpt.correct;
+
+            const selectedBtn = document.getElementById(`opt-${qIdx}-${optIdx}`);
+
+            if (isCorrect) {
+                selectedBtn.classList.add('correct');
+                playSound('correct');
+                triggerConfetti();
+            } else {
+                selectedBtn.classList.add('wrong');
+                playSound('wrong');
+
+                q.shuffledOptions.forEach((o, i) => {
+                    if (o.correct) {
+                        document.getElementById(`opt-${qIdx}-${i}`).classList.add('correct');
+                    }
+                });
+            }
+
+            q.shuffledOptions.forEach((_, i) => {
+                const b = document.getElementById(`opt-${qIdx}-${i}`);
+                b.disabled = true;
+                b.style.cursor = 'default';
+            });
+
+            document.getElementById(`exp-${qIdx}`).classList.add('show');
+        }
+
+        function submitQuiz() {
+            let correctCount = 0;
+
+            questions.forEach(q => {
+                if (q.userAnswerIndex !== null && q.shuffledOptions[q.userAnswerIndex].correct) {
+                    correctCount++;
+                }
+            });
+
+            const total = questions.length;
+            const percentage = Math.round((correctCount / total) * 100);
+
+            document.getElementById('score-text').innerText = `${correctCount} / ${total} (${percentage}%)`;
+
+            let comment = "";
+            if (percentage < 50) {
+                comment = "Điểm lần này chưa cao lắm, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!";
+            } else if (percentage <= 80) {
+                comment = "Con đã có tiến bộ khá ổn rồi, con cố gắng đọc kỹ giải thích đáp án và làm lại nha. Cô tin con sẽ làm tốt hơn ở lần sau!";
+            } else {
+                comment = "Làm tốt lắm, con cố gắng rinh điểm 10 ở lần sau nha!";
+                triggerConfetti();
+            }
+
+            document.getElementById('comment-text').innerText = comment;
+            document.getElementById('result-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('result-modal').style.display = 'none';
+        }
+
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const colors = ['#8854C0', '#FDCB6E', '#00C9A7', '#FF7675', '#6C5CE7', '#00D26A'];
+
+            for (let i = 0; i < 60; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    vx: (Math.random() - 0.5) * 14,
+                    vy: (Math.random() - 0.7) * 14,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    life: 90
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let alive = false;
+
+                particles.forEach(p => {
+                    if (p.life > 0) {
+                        alive = true;
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        p.vy += 0.4;
+                        p.life -= 2;
+                        ctx.fillStyle = p.color;
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                });
+
+                if (alive) requestAnimationFrame(animate);
+                else ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+
+            animate();
+        }
+
+        window.onload = initQuiz;
+    </script>
+</body>
+</html>
